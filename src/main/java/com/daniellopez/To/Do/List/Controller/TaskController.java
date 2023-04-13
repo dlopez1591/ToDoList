@@ -5,6 +5,7 @@ import com.daniellopez.To.Do.List.repositories.ClientRepository;
 import com.daniellopez.To.Do.List.repositories.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,5 +23,11 @@ public class TaskController {
     @GetMapping("/tasks")
     public List<TaskDTO> getTasks(){
         return taskRepository.findAll().stream().map(task -> new TaskDTO(task)).collect(Collectors.toList());
+
+    }
+    //Metodo para recuperar una tarea con un ID
+    @GetMapping("/tasks/{id}")
+    public TaskDTO getTask(@PathVariable Long id){
+        return taskRepository.findById(id).map(task -> new TaskDTO(task)).orElse(null);
     }
 }
