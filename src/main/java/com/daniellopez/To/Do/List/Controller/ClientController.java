@@ -86,7 +86,24 @@ public class ClientController {
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("El cliente no existe");
         }
-    }
 
+    }
+    //Metodo para editar un cliente
+    @PutMapping("clients/{id}")
+    public ResponseEntity<Object> edit (@PathVariable Long id, @RequestBody Client updatedClient ){
+        Optional<Client> optionalClient = clientRepository.findById(id);
+        if(optionalClient.isPresent()){
+            Client client = optionalClient.get();
+            client.setFirstName(updatedClient.getFirstName());
+            client.setLastName(updatedClient.getLastName());
+            client.setEmail(updatedClient.getEmail());
+            client.setPassword(updatedClient.getPassword());
+            clientRepository.save(client);
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body("El Cliente fue editado");
+        }
+        else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("El Cliente no fue encontrado");
+        }
+    }
 
 }
