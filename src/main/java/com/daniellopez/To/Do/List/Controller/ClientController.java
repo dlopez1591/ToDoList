@@ -1,14 +1,16 @@
 package com.daniellopez.To.Do.List.Controller;
 
 import com.daniellopez.To.Do.List.dtos.ClientDTO;
+import com.daniellopez.To.Do.List.models.Client;
 import com.daniellopez.To.Do.List.repositories.ClientRepository;
 import com.daniellopez.To.Do.List.repositories.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -40,4 +42,13 @@ public class ClientController {
     public Optional<ClientDTO> getClient(@PathVariable Long id){
         return clientRepository.findById(id).map(client -> new ClientDTO(client));
     }
+    //Metodo para crear un cliente
+    @PostMapping("clients/register")
+    //metodo de tipo publico que va a regresar una response entity recibe como parametro un objeto el metodo se llama register
+    public ResponseEntity<Object> register (@RequestBody Client client){
+        Client newClient = new Client(client.getFirstName(), client.getLastName(), passwordEncoder.encode(client.getPassword()), client.getEmail());
+        clientRepository.save(newClient);
+        return ResponseEntity.status(HttpStatus.CREATED).body("El Cliente fue creado exitosamente");
+    }
+
 }
