@@ -43,7 +43,7 @@ public class TaskController {
         return clientRepository.findByEmail(authentication.getName()).getTasks().stream().map(task -> new TaskDTO(task)).collect(toList());
     }
     //Metodo para crear una tarea al cliente autenticado
-    @PostMapping("/clientes/current/tasks")
+    @PostMapping("/clients/current/tasks")
     public ResponseEntity<Object> newTask (Authentication authentication, @RequestBody Task newTask){
         //Se crea el cliente
         Client client = clientRepository.findByEmail(authentication.getName());
@@ -71,7 +71,8 @@ public class TaskController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontro la tarea");
         }
     }
-    //1. Neceisto el tipo de Request y ruta
+    //Metodo para eliminar una task
+    //1. Necesito el tipo de Request y ruta
     @DeleteMapping("/task/{id}")
     //2. crear el metodo, teniendo claro que retorna y por que
     public ResponseEntity<Object> deleteTask (@PathVariable Long id){
@@ -80,7 +81,7 @@ public class TaskController {
         if(optionalDeletedTask.isPresent()){
             taskRepository.delete(optionalDeletedTask.get());
             //4. indicar la respuesta
-            return ResponseEntity.status(HttpStatus.OK).body("La tarea no fue encontrada");
+            return ResponseEntity.status(HttpStatus.OK).body("La tarea fue borrada");
         }
         else{
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("La tarea no fue encontrada");

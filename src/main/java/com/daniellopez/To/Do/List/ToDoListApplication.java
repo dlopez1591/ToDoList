@@ -31,12 +31,15 @@ public class ToDoListApplication {
 			Client yenny = new Client ("Yenny", "Hernandez", passwordEncoder.encode("yenny"),  "yenny123@gmail.com");
 			Task tareaUno = new Task("Tarea Uno", "Crear una tarea", LocalDate.now(), taskStatus.Comenzada, daniel);
 			Task tareaDos = new Task("Tarea Dos", "Crear otra tarea", LocalDate.now(), taskStatus.Desarrollando, yenny);
+			Task tareaTres = new Task ("Tarea Tres", "Creando mas tareas", LocalDate.now(),taskStatus.Finalizada, daniel);
 			daniel.addTask(tareaUno);
 			yenny.addTask(tareaDos);
+			daniel.addTask(tareaTres);
 			clientRepository.save(daniel);
 			clientRepository.save(yenny);
 			taskRepository.save(tareaUno);
 			taskRepository.save(tareaDos);
+			taskRepository.save(tareaTres);
 		};
 	}
 }
