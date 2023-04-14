@@ -27,18 +27,18 @@ public class ClientController {
     @Autowired
     private PasswordEncoder passwordEncoder;
     //ahora vamos a definir un metodo que retorne el listado de clientes
-    @RequestMapping("/clients")
+    @GetMapping("/clients")
     public List<ClientDTO> getClients(){
         return clientRepository.findAll().stream().map(client -> new ClientDTO(client)).collect(toList());
         //clientRepository.findAll().stream().map(ClientDTO::new).collect(toList());
     }
     //Metodo para tener informacion del cliente autenticado
-    @RequestMapping("clients/current")
+    @GetMapping("clients/current")
     public ClientDTO getCurrentClient(Authentication authentication) {
         return new ClientDTO(clientRepository.findByEmail(authentication.getName()));
     }
     //Metodo para obtener un cliente por su ID
-    @RequestMapping("/clients/{id}")
+    @GetMapping("/clients/{id}")
     public Optional<ClientDTO> getClient(@PathVariable Long id){
         return clientRepository.findById(id).map(client -> new ClientDTO(client));
     }
