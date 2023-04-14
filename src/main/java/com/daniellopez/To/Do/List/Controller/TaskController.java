@@ -56,7 +56,7 @@ public class TaskController {
 
     //Metodo para editar una tarea
     @PutMapping("/task/{id}")
-    public ResponseEntity<Object> editTask (@PathVariable Long id, Task updatedTask){
+    public ResponseEntity<Object> editTask (@PathVariable Long id, @RequestBody Task updatedTask){
         Optional<Task> optionalTask = taskRepository.findById(id);
         if(optionalTask.isPresent()){
             //busco la tarea que quiero editar por el ID y la guardo
@@ -71,4 +71,20 @@ public class TaskController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontro la tarea");
         }
     }
+    //1. Neceisto el tipo de Request y ruta
+    @DeleteMapping("/task/{id}")
+    //2. crear el metodo, teniendo claro que retorna y por que
+    public ResponseEntity<Object> deleteTask (@PathVariable Long id){
+        //3. aplicar los metodos del repositorio de acuerdo a lo necesaria
+        Optional <Task> optionalDeletedTask = taskRepository.findById(id);
+        if(optionalDeletedTask.isPresent()){
+            taskRepository.delete(optionalDeletedTask.get());
+            //4. indicar la respuesta
+            return ResponseEntity.status(HttpStatus.OK).body("La tarea no fue encontrada");
+        }
+        else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("La tarea no fue encontrada");
+        }
+    }
+
 }
