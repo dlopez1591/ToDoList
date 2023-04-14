@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
@@ -51,5 +52,23 @@ public class TaskController {
         //Se Guarda la tarea
         taskRepository.save(newTask);
         return ResponseEntity.status(HttpStatus.CREATED).body("La Tarea fue creada Exitosamente");
+    }
+
+    //Metodo para editar una tarea
+    @PutMapping("/task/{id}")
+    public ResponseEntity<Object> editTask (@PathVariable Long id, Task updatedTask){
+        Optional<Task> optionalTask = taskRepository.findById(id);
+        if(optionalTask.isPresent()){
+            //busco la tarea que quiero editar por el ID y la guardo
+            Task task = optionalTask.get();
+            //Busco el cliente asociado a la tarea
+            Client client = task.getClient();
+            //Creo una nueva instancia
+            Task updated = new Task(updatedTask.getTitle(), updatedTask.getDescription(), updatedTask.getDueDate(), updatedTask.getStatus(), client);
+            taskRepository.save(updated);
+            return ResponseEntity.status(HttpStatus.OK).body("La tarea ha sido modificada");
+        }else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontro la tarea");
+        }
     }
 }
