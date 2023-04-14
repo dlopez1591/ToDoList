@@ -47,48 +47,13 @@ public class ClientController {
 
     @PostMapping("clients/register")
     public ResponseEntity<Object> register (@RequestBody Client client){
-        if (client.getFirstName().isEmpty()) {
-            return new ResponseEntity<>("Falta El Nombre", HttpStatus.BAD_REQUEST);
-        } else if (client.getLastName().isEmpty()) {
-            return new ResponseEntity<>("Falta el Apellido", HttpStatus.BAD_REQUEST);
-        } else if (client.getEmail().isEmpty()) {
-            return new ResponseEntity<>("Falta el Email", HttpStatus.BAD_REQUEST);
-        } else if (client.getPassword().isEmpty()) {
-            return new ResponseEntity<>("Falta El Password", HttpStatus.BAD_REQUEST);
-        } else if (clientRepository.findByEmail(client.getEmail()) != null) {
-            return new ResponseEntity<>("El Email ya se encuentra en uso", HttpStatus.FORBIDDEN);
-        } else {
-            Client newClient = new Client(client.getFirstName(), client.getLastName(),
-                    passwordEncoder.encode(client.getPassword()), client.getEmail());
-            clientRepository.save(newClient);
-            return ResponseEntity.status(HttpStatus.CREATED).body("El Cliente fue creado exitosamente");
-        }
+        return clientService.register(client);
     }
-    //Metodo para eliminar clientes
+
     @DeleteMapping("clients/{id}")
     public ResponseEntity<Object> delete(@PathVariable Long id) {
-        /*Optional es una clase introducida en Java 8 para tratar con valores que pueden o no estar presentes. Básicamente, Optional es una abstracción
-        que representa la posibilidad de que un valor sea null.
-        En lugar de devolver un valor null que puede dar lugar a errores de NullPointerException, podemos utilizar Optional para envolver el valor
-        y verificar si está presente antes de realizar cualquier operación con él.
-        De esta manera, podemos hacer que nuestro código sea más seguro y menos propenso a errores.
-        Un objeto Optional puede contener un valor presente o estar vacío. Si un objeto Optional contiene un valor, el método isPresent() devuelve true, mientras
-        que si está vacío devuelve false. Para obtener el valor almacenado en un objeto Optional, se puede utilizar el método get(),
-        siempre y cuando se haya comprobado previamente que el objeto no está vacío.
-        En el ejemplo que me mostraste anteriormente, el método findById() del repositorio devuelve un objeto Optional que puede contener el cliente
-        buscado o estar vacío si no se encontró ningún cliente con el ID especificado. Por lo tanto, el método map() se
-        utiliza para convertir el objeto Client en un objeto ClientDTO si el objeto Optional contiene un valor.*/
-
-        Optional<Client> optionalClient = clientRepository.findById(id);
-        if (optionalClient.isPresent()) {
-            clientRepository.delete(optionalClient.get());
-            return ResponseEntity.ok("El cliente fue eliminado exitosamente");
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("El cliente no existe");
-        }
-
+        return clientService.delete(id);
     }
-    //Metodo para editar un cliente
     @PutMapping("clients/{id}")
     public ResponseEntity<Object> edit (@PathVariable Long id, @RequestBody Client updatedClient ){
         Optional<Client> optionalClient = clientRepository.findById(id);
