@@ -1,5 +1,4 @@
 package com.daniellopez.To.Do.List.services.impl;
-
 import com.daniellopez.To.Do.List.dtos.ClientDTO;
 import com.daniellopez.To.Do.List.models.Client;
 import com.daniellopez.To.Do.List.repositories.ClientRepository;
@@ -12,12 +11,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
-
 import java.util.List;
 import java.util.Optional;
-
 import static java.util.stream.Collectors.toList;
-
 @Service
 public class ClientServiceImpl implements ClientService {
 @Autowired
@@ -66,5 +62,21 @@ public ResponseEntity<Object> delete(@PathVariable Long id) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("El cliente no existe");
     }
 
+}
+@Override
+public ResponseEntity<Object> edit (@PathVariable Long id, @RequestBody Client updatedClient ){
+    Optional<Client> optionalClient = clientRepository.findById(id);
+    if(optionalClient.isPresent()){
+        Client client = optionalClient.get();
+        client.setFirstName(updatedClient.getFirstName());
+        client.setLastName(updatedClient.getLastName());
+        client.setEmail(updatedClient.getEmail());
+        client.setPassword(updatedClient.getPassword());
+        clientRepository.save(client);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body("El Cliente fue editado");
+    }
+    else{
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("El Cliente no fue encontrado");
+    }
 }
 }
