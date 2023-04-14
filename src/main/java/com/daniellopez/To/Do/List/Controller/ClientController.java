@@ -4,6 +4,7 @@ import com.daniellopez.To.Do.List.dtos.ClientDTO;
 import com.daniellopez.To.Do.List.models.Client;
 import com.daniellopez.To.Do.List.repositories.ClientRepository;
 import com.daniellopez.To.Do.List.repositories.TaskRepository;
+import com.daniellopez.To.Do.List.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,16 +27,17 @@ public class ClientController {
     private TaskRepository taskRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
-    //ahora vamos a definir un metodo que retorne el listado de clientes
+    @Autowired
+    private ClientService clientService;
+
     @GetMapping("/clients")
-    public List<ClientDTO> getClients(){
-        return clientRepository.findAll().stream().map(client -> new ClientDTO(client)).collect(toList());
-        //clientRepository.findAll().stream().map(ClientDTO::new).collect(toList());
+    public List<ClientDTO> getClients() {
+        return clientService.getClients();
     }
-    //Metodo para tener informacion del cliente autenticado
+
     @GetMapping("clients/current")
-    public ClientDTO getCurrentClient(Authentication authentication) {
-        return new ClientDTO(clientRepository.findByEmail(authentication.getName()));
+    public ClientDTO getCurrentClient(Authentication authentication){
+        return clientService.getCurrentClient(authentication);
     }
     //Metodo para obtener un cliente por su ID
     @GetMapping("/clients/{id}")
@@ -43,6 +45,7 @@ public class ClientController {
         return clientRepository.findById(id).map(client -> new ClientDTO(client));
     }
     //Metodo para crear un cliente
+
 
     //metodo de tipo publico que va a regresar una response entity recibe como parametro un objeto el metodo se llama register
     @PostMapping("clients/register")
