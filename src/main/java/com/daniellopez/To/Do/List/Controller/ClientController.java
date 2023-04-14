@@ -39,15 +39,12 @@ public class ClientController {
     public ClientDTO getCurrentClient(Authentication authentication){
         return clientService.getCurrentClient(authentication);
     }
-    //Metodo para obtener un cliente por su ID
+
     @GetMapping("/clients/{id}")
-    public Optional<ClientDTO> getClient(@PathVariable Long id){
-        return clientRepository.findById(id).map(client -> new ClientDTO(client));
+    public Optional<ClientDTO> getClient (@PathVariable Long id) {
+        return clientService.getClient(id);
     }
-    //Metodo para crear un cliente
 
-
-    //metodo de tipo publico que va a regresar una response entity recibe como parametro un objeto el metodo se llama register
     @PostMapping("clients/register")
     public ResponseEntity<Object> register (@RequestBody Client client){
         if (client.getFirstName().isEmpty()) {
