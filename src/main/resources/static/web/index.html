@@ -11,12 +11,43 @@
 </head>
 <body>
     <div id="app">
-        {{ message }}
+        <div class="container">
+            <div class="login_box">
+                <h1>Login</h1>
+                <div class="input_box">
+                    <input type="text" required="">
+                    <label for="">Email</label>
+                    <ion-icon class="icon " name="mail-outline"></ion-icon>
+                </div>
+                <div class="input_box">
+                    <input type="password" required="">
+                    <label for="">Password</label>
+                    <ion-icon class="icon" name="lock-closed-outline"></ion-icon>
+                </div>
+                <div class="rem">
+                    <input id="chack" type="checkbox">
+                    <label for="chack">remember me</label>
+                    <a href="#">forget password</a>
+                </div>
+                <div class="login">
+                    <button>Log in </button>
+                </div>
+                <div>
+                    <div class="login">
+                        
+                        <button>Registration </button>
+                    </div>
+                </div>
+            </div>
+         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./assets/scripts/index.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 
 </body>
 </html>
