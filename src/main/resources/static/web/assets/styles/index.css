@@ -133,7 +133,6 @@ h1{
 	font-weight: bold;
 }
 
-
 .input_box input:focus ~ label,
 .input_box input:valid ~ label{
 	top: 0;
@@ -146,5 +145,3 @@ h1{
 	color:#fff;
 	border: 1px solid #fff;
  }
-
-
