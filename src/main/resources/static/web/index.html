@@ -12,21 +12,21 @@
 <body>
     <div id="app">
         <div class="container">
-            <div class="login_box">
+            <form class="login_box" @submit.prevent>
                 <h1>Login</h1>
                 <div class="input_box">
-                    <input type="text" required="">
+                    <input type="text" required="" v-model="email">
                     <label for="">Email</label>
                     <ion-icon class="icon " name="mail-outline"></ion-icon>
                 </div>
                 <div class="input_box">
-                    <input type="password" required="">
+                    <input type="password" required="" v-model="password">
                     <label for="">Password</label>
                     <ion-icon class="icon" name="lock-closed-outline"></ion-icon>
                 </div>
                 
                 <div class="login">
-                    <button>Log in </button>
+                    <button v-on:click="login">Log in </button>
                 </div>
                 <div>
                     <div class="login">
@@ -35,7 +35,7 @@
                         </button>
                     </div>
                 </div>
-            </div>
+            </form>
          </div>
 
          <!-- Modal Registration -->
@@ -88,7 +88,7 @@
     <script src="./assets/scripts/index.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 	<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
 </html>
