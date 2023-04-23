@@ -9,8 +9,8 @@ body{
 	background-repeat: no-repeat;
   	background-position: center;
   	background-size: cover;
-	width: 100vw;
-	height: 100vh;
+	display: flex;
+	flex-direction: column;
 
 }
 .mainContainer{
@@ -20,4 +20,19 @@ body{
 	align-items: center;
 	width: 100vw;
 	height: 100vh;
+}
+.banner{
+	width: 100vw;
+	height: 15vh;
+	background-color: black;
+}
+nav{
+	width: 100vw;
+	height: 6vh;
+	background-color: aliceblue;
+	margin-top: 1vh;
+}
+main{
+	width: 100vw;
+	
 }
