@@ -9,5 +9,15 @@ body{
 	background-repeat: no-repeat;
   	background-position: center;
   	background-size: cover;
-	
+	width: 100vw;
+	height: 100vh;
+
+}
+.mainContainer{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
 }
