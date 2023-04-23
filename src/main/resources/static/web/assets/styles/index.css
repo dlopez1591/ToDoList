@@ -3,3 +3,11 @@
     margin: 0;
     padding: 0;
 }
+
+body{
+	background-image: url(../images/pexels-anete-lusina-7256739.jpg);
+	background-repeat: no-repeat;
+  	background-position: center;
+  	background-size: cover;
+	
+}
