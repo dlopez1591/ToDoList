@@ -45,14 +45,37 @@ nav{
 	justify-content: center;
 	align-items: center;
 }
-.boton{
-	width:150px;
+.boton {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 150px;
 	height: 40px;
 	border-radius: 5px;
 	background-color: rgba(192, 192, 192, 0.458);
 	margin: 15px;
 	box-shadow: 5px 5px 5px #333333;
-}
+	font-family: 'Bruno Ace', cursive;
+	font-size: 20px;
+	color: aliceblue;
+  }
+  .boton:hover {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 150px;
+	height: 40px;
+	border-radius: 5px;
+	background-color: aliceblue;
+	margin: 15px;
+	box-shadow: 5px 5px 5px #604A32;
+	font-family: 'Bruno Ace', cursive;
+	font-size: 20px;
+	color: #604A32;
+  }
+ 
 main{
 	width: 100vw;
 	height: 60vh;
