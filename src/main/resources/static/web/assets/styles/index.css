@@ -76,7 +76,12 @@ nav{
 	font-size: 20px;
 	color: #604A32;
   }
- 
+  .modalBody{
+	background-image: url(../images/modalBg.png);
+	background-repeat: no-repeat;
+  	background-position: center;
+  	background-size: cover;
+  }
 main{
 	width: 100vw;
 	height: 60vh;
