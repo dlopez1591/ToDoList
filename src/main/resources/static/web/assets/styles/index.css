@@ -59,6 +59,7 @@ nav{
 	font-family: 'Bruno Ace', cursive;
 	font-size: 20px;
 	color: aliceblue;
+	cursor: pointer;
   }
   .boton:hover {
 	display: flex;
