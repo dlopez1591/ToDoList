@@ -82,6 +82,12 @@ nav{
   	background-position: center;
   	background-size: cover;
   }
+  .containerBotones{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+  }
 main{
 	width: 100vw;
 	height: 60vh;
