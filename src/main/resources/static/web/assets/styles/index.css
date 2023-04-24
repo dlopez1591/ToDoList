@@ -34,5 +34,13 @@ nav{
 }
 main{
 	width: 100vw;
-	
+	height: 60vh;
+	background-color:aquamarine;
+	margin-top: 1vh;
+	margin-bottom: 1vh;
+}
+footer{
+	width: 100vw;
+	height: 15vh;
+	background-color: blue;
 }
