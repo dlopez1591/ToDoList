@@ -24,23 +24,53 @@ body{
 .banner{
 	width: 100vw;
 	height: 15vh;
-	background-color: black;
+	background-color: #fffdd02b;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+} 
+#mainTitle{
+	color:white;
+	font-family: 'Bruno Ace', cursive;
+	font-size: 90px;
+	text-shadow: 10px 10px 10px #333333;
 }
 nav{
 	width: 100vw;
 	height: 6vh;
-	background-color: aliceblue;
 	margin-top: 1vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.boton{
+	width:150px;
+	height: 40px;
+	border-radius: 5px;
+	background-color: rgba(192, 192, 192, 0.458);
+	margin: 15px;
+	box-shadow: 5px 5px 5px #333333;
 }
 main{
 	width: 100vw;
 	height: 60vh;
-	background-color:aquamarine;
+	
 	margin-top: 1vh;
 	margin-bottom: 1vh;
 }
 footer{
 	width: 100vw;
 	height: 15vh;
-	background-color: blue;
+	
 }
+@media screen and (min-width: 350px) and (max-width: 680px) {
+	#mainTitle{
+		color:rgb(255, 255, 255);
+		font-family: 'Bruno Ace', cursive;
+		font-size: 40px;
+		text-shadow: 5px 5px 5px #333333;
+	}
+  }
+  
