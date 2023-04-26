@@ -82,6 +82,27 @@ nav{
   	background-position: center;
   	background-size: cover;
   }
+  .modalTitulo{
+	font-size: 40px;
+	color: white;
+	font-family: 'Bruno Ace', cursive;
+	text-shadow: 5px 5px 5px #33333348;
+	text-align: center;
+  }
+ .registerForm{
+		display: flex;
+		flex-direction: column;
+  }
+  .formInputs{
+	background-color: #604a3268;
+	border-style: solid;
+	border-color: #333333;
+	margin-top: 10px;
+	box-shadow: 5px 5px 5px #333333;
+	color: white;
+	font-size: 20px;
+	
+  }
   .containerBotones{
 	display: flex;
 	flex-direction: row;
