@@ -101,7 +101,15 @@ nav{
 	box-shadow: 5px 5px 5px #333333;
 	color: white;
 	font-size: 20px;
-	
+  }
+  .formInputs:hover{
+	background-color: white;
+	border-style: solid;
+	border-color: #333333;
+	margin-top: 10px;
+	box-shadow: 5px 5px 5px #333333;
+	color: white;
+	font-size: 20px;
   }
   .containerBotones{
 	display: flex;
@@ -112,7 +120,6 @@ nav{
 main{
 	width: 100vw;
 	height: 60vh;
-	
 	margin-top: 1vh;
 	margin-bottom: 1vh;
 }
