@@ -111,6 +111,7 @@ nav{
 	color: white;
 	font-size: 20px;
   }
+  
   .containerBotones{
 	display: flex;
 	flex-direction: row;
@@ -128,6 +129,7 @@ footer{
 	height: 15vh;
 	
 }
+
 @media screen and (min-width: 350px) and (max-width: 680px) {
 	#mainTitle{
 		color:rgb(255, 255, 255);
