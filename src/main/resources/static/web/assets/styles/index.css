@@ -131,13 +131,14 @@ main{
 #imageContainer{
 	width: 300px;
 	height: 474px;
-	opacity: 0.5;
+	opacity: 0.6;
 }
 #mainContainer{
 	background-color: #57534a4f;
 	display: flex;
 	flex-direction: row;
-	width: 800px;
+	width: 900px;
+	box-shadow: 3px 3px 3px #333333;
 }
 #textContainer{
 	display: flex;
@@ -147,13 +148,20 @@ main{
 #titleBox{
 color: white;
 text-align: center;
-text-shadow: 2px 2px 2px #33333348;
-font-size: 40px; 
+font-size: 40px;
+text-shadow: 4px 4px 6px #333333; 
 font-family: 'Bruno Ace', cursive;
+}
+ul{
+	list-style: circle;
+}
+li{
+	color: aliceblue;
+	font-family: 'Bruno Ace', cursive;
 }
 .text{
 	font-family: 'Bruno Ace', cursive;
-	font-size: 14px;
+	font-size: 15px;
 	text-align: justify;
 	color: rgb(255, 255, 255);
 }
@@ -175,4 +183,6 @@ footer{
 		text-shadow: 5px 5px 5px #333333;
 	}
   }
-  
+@media screen and (min-width: 681) and (max-width: 920px) {
+
+} 
