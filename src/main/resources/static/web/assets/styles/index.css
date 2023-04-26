@@ -142,6 +142,20 @@ main{
 #textContainer{
 	display: flex;
 	flex-direction: column;
+	padding: 10px;
+}
+#titleBox{
+color: white;
+text-align: center;
+text-shadow: 2px 2px 2px #33333348;
+font-size: 40px; 
+font-family: 'Bruno Ace', cursive;
+}
+.text{
+	font-family: 'Bruno Ace', cursive;
+	font-size: 14px;
+	text-align: justify;
+	color: rgb(255, 255, 255);
 }
 footer{
 	width: 100vw;
