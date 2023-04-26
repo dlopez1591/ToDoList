@@ -125,6 +125,8 @@ main{
 	margin-bottom: 1vh;
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 #imageContainer{
 	width: 300px;
@@ -135,6 +137,7 @@ main{
 	background-color: #57534a4f;
 	display: flex;
 	flex-direction: row;
+	width: 800px;
 }
 #textContainer{
 	display: flex;
