@@ -168,12 +168,23 @@ li{
 footer{
 	width: 100vw;
 	height: 15vh;
-	
+	background-color: #fffdd02b;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+.iconos{
+	color: #212529;
+	text-decoration: none;
 }
 #secondTitle{
 	color: rgb(185, 183, 183);
 	text-align: center;
 	font-family: 'Bruno Ace', cursive;
+}
+#tituloFooter{
+	font-size: 60px;
 }
 @media screen and (min-width: 350px) and (max-width: 680px) {
 	#mainTitle{
