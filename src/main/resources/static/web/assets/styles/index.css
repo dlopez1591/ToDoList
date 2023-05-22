@@ -186,6 +186,18 @@ footer{
 #tituloFooter{
 	font-size: 60px;
 }
+.contenedoresFooter{
+	margin: 15px;
+}
+.iconos{
+	font-size: 50px !important;
+	margin: 10px;
+}
+.iconos:hover{
+	font-size: 50px !important;
+	margin: 10px;
+	color: azure;
+}
 @media screen and (min-width: 350px) and (max-width: 680px) {
 	#mainTitle{
 		color:rgb(255, 255, 255);
